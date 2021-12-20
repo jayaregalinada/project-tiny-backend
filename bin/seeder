@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const yargs = require('yargs');
+const { hideBin } = require('yargs/helpers');
+const seeders = require('../src/database/seeders');
+
+//==============================
+yargs(hideBin(process.argv))
+  .option('count', {
+    alias: 'c',
+    describe: 'How many seed you want',
+    type: 'number',
+  })
+  .command(
+    'run [seederFile]',
+    'Execute Seeder',
+    (yargs) => {
+      return yargs.positional('seederFile', {
+        describe: 'The Seeder file',
+      });
+    },
+    async (argv) => {
+      const seeder = seeders[argv.seederFile];
+
+      await seeder(argv.count);
+    },
+  )
+  .parse();
