@@ -135,9 +135,7 @@ module.exports = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: [
-    './post-setup.js'
-  ],
+  setupFilesAfterEnv: ['./post-setup.js'],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -146,7 +144,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "./utils/environment.js",
+  testEnvironment: './utils/environment.js',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -161,10 +159,7 @@ module.exports = {
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: [
-    "/node_modules/",
-    "/test/utils/*"
-  ],
+  testPathIgnorePatterns: ['/node_modules/', '/test/utils/*'],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],

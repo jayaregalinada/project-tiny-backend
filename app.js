@@ -12,7 +12,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/stories', routes.story);
-app.use('/auth', routes.auth)
+app.use('/auth', routes.auth);
 
 // app.get('*', (request, response) => {
 //   return response.status(404).json({ error: 'Page not found.' });

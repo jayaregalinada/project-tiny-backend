@@ -17,4 +17,4 @@ describe('All test for Story', () => {
   });
 
   describe('When trying to get all stories', allTest);
-})
+});

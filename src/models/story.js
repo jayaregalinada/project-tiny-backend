@@ -1,6 +1,6 @@
 const { Schema, model, SchemaTypes } = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
-const UserModel = require('./user');
+const userModel = require('./user');
 
 const schema = {
   title: {
@@ -16,7 +16,7 @@ const schema = {
   },
   user: {
     type: SchemaTypes.ObjectId,
-    ref: UserModel,
+    ref: userModel,
   },
 };
 

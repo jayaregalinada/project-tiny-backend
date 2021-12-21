@@ -2,5 +2,5 @@
   "watch": ["src"],
   "ext": "js",
   "ignore": ["src/**/*.spec.js", "node_modules/"],
-  "exec": "node ./bin/www --exec babel-node"
+  "exec": "node -r dotenv/config ./bin/www --exec babel-node"
 }

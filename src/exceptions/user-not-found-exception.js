@@ -1,3 +1,1 @@
-module.exports = class UserNotFoundException extends Error {
-  
-}
+module.exports = class UserNotFoundException extends Error {};

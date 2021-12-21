@@ -1,8 +1,8 @@
-const StoryController = require('../controllers/story.controller');
+const storyController = require('../controllers/story.controller');
 
 const router = require('express').Router();
 
-router.get('/', StoryController.index);
-router.post('/', StoryController.store);
+router.get('/', storyController.index);
+router.post('/', storyController.store);
 
 module.exports = router;

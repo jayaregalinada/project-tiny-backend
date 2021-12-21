@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const random = require('mongoose-random');
 
 const schema = {
   firstName: {

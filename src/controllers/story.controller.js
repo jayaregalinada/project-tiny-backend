@@ -1,4 +1,4 @@
-const StoryModel = require('../models/story');
+const storyModel = require('../models/story');
 const storyRepository = require('../repositories/story-repository');
 const storyResource = require('../resources/story-resource');
 const url = require('../utils/url');
@@ -46,7 +46,7 @@ exports.store = async (request, response) => {
   const { title, body, heroImage } = request.body;
 
   try {
-    let model = new StoryModel({ title, body, heroImage });
+    let model = new storyModel({ title, body, heroImage });
     model.user = request.body.user;
     const story = await model.save();
     const storyWithUser = await story.populate('user');

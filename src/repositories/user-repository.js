@@ -1,6 +1,6 @@
 const { compare } = require('bcrypt');
 const UserNotFoundException = require('../exceptions/user-not-found-exception');
-const UserModel = require('../models/user');
+const userModel = require('../models/user');
 
 /**
  * Find user by credentials: email and password
@@ -12,9 +12,11 @@ const UserModel = require('../models/user');
  */
 exports.findByCredentials = async (email, password) => {
   /** @type {import('../../typedefs').UserMongooseModel|null} */
-  const user = await UserModel.findOne({
-    email,
-  }).select('+password');
+  const user = await userModel
+    .findOne({
+      email,
+    })
+    .select('+password');
 
   if (user === null) {
     throw new UserNotFoundException();

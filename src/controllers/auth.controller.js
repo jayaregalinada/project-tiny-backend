@@ -1,7 +1,6 @@
-const UserRepository = require('../repositories/user-repository');
-const AuthRepository = require('../repositories/auth-repository');
-const UserResource = require('../resources/user-resource');
-const JWTUserResource = require('../resources/jwt-user-resource');
+const userRepository = require('../repositories/user-repository');
+const authRepository = require('../repositories/auth-repository');
+const jwtUserResource = require('../resources/jwt-user-resource');
 
 /**
  * Login a user and response a JWT Token.
@@ -21,7 +20,7 @@ exports.login = async (request, response) => {
   }
 
   try {
-    const user = await UserRepository.findByCredentials(email, password);
+    const user = await userRepository.findByCredentials(email, password);
     if (user === null) {
       response.status(400).json({
         error: 'Invalid credentials',
@@ -30,7 +29,7 @@ exports.login = async (request, response) => {
       return;
     }
 
-    const accessToken = AuthRepository.createAccessToken(JWTUserResource(user));
+    const accessToken = authRepository.createAccessToken(jwtUserResource(user));
 
     response.status(200).json({ accessToken });
   } catch (error) {
@@ -42,8 +41,8 @@ exports.login = async (request, response) => {
 };
 
 /**
- * @param {Response} response 
- * @param {String|undefined} error 
+ * @param {Response} response
+ * @param {String|undefined} error
  */
 const unauthorizedResponse = (response, error) => {
   error = error !== undefined ? error : 'Unauthorized';
@@ -69,7 +68,7 @@ exports.profile = (request, response) => {
   }
 
   const [type, token] = headers.authorization.split(' ');
-  const user = AuthRepository.decodeToken(token);
+  const user = authRepository.decodeToken(token);
 
   if (user === null) {
     unauthorizedResponse(response);

@@ -1,5 +1,4 @@
 const StoryModel = require('../models/story');
-const storyResource = require('../resources/story-resource');
 
 const DEFAULTS = {
   limit: 15,

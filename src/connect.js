@@ -1,4 +1,4 @@
-const { connect, ConnectOptions, Mongoose, connection } = require('mongoose');
+const { connect, ConnectOptions, Mongoose } = require('mongoose');
 const debug = require('debug')('tiny-project-backend:database');
 
 const defaultProtocol = 'mongodb';
@@ -62,7 +62,7 @@ module.exports = async (config) => {
     if (uri === `${defaultProtocol}://`) {
       throw Error('No database configuration was set.');
     }
-    
+
     debug('Attempting to connect');
     const connection = await connect(uri, options);
     debug('Successfully connected to database');
