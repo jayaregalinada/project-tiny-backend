@@ -1,14 +1,15 @@
+const path = require('path');
 const fs = require('fs');
 
-let path = `${__dirname}/.env.${process.env.NODE_ENV}`;
+let envPath = path.resolve(__dirname, `.env.${process.env.NODE_ENV}`);
 
-if (fs.existsSync(path) === false) {
-  path = `${__dirname}/.env`;
+if (fs.existsSync(envPath) === false) {
+  envPath = path.resolve(__dirname, '.env');
 }
 
 module.exports = () => {
   require('dotenv').config({
     // debug: process.env.APP_DEBUG || false,
-    path,
+    path: envPath
   });
 };

@@ -13,7 +13,7 @@ exports.login = async (request, response) => {
 
   if (email === undefined || password === undefined) {
     response.status(400).json({
-      error: 'Please input email or password',
+      error: 'Please input email or password'
     });
 
     return;
@@ -23,7 +23,7 @@ exports.login = async (request, response) => {
     const user = await userRepository.findByCredentials(email, password);
     if (user === null) {
       response.status(400).json({
-        error: 'Invalid credentials',
+        error: 'Invalid credentials'
       });
 
       return;
@@ -35,7 +35,7 @@ exports.login = async (request, response) => {
   } catch (error) {
     console.error(error);
     response.status(400).json({
-      error: 'Something went wrong',
+      error: 'Something went wrong'
     });
   }
 };
@@ -48,7 +48,7 @@ const unauthorizedResponse = (response, error) => {
   error = error !== undefined ? error : 'Unauthorized';
 
   response.status(401).json({
-    error,
+    error
   });
 };
 

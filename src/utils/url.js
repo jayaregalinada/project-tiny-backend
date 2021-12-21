@@ -10,7 +10,7 @@ module.exports = (request, requestQuery) => {
   const url = `${protocol}://${headers.host}${baseUrl}`;
   const queries = {
     ...query,
-    ...requestQuery,
+    ...requestQuery
   };
   const queryParse = qs.stringify(queries);
 

@@ -15,8 +15,8 @@ module.exports = () => {
 
     expect(body).toEqual(
       expect.objectContaining({
-        data: expect.any(Array),
-      }),
+        data: expect.any(Array)
+      })
     );
   });
 
@@ -25,20 +25,20 @@ module.exports = () => {
       create: 5,
       expectedCount: 5,
       hasNextPage: false,
-      name: 'Only 5 stories',
+      name: 'Only 5 stories'
     },
     {
       create: 15,
       expectedCount: 15,
       hasNextPage: false,
-      name: 'Only 15 stories',
+      name: 'Only 15 stories'
     },
     {
       create: 30,
       expectedCount: 15,
       hasNextPage: true,
-      name: 'Above the limit or 30 stories',
-    },
+      name: 'Above the limit or 30 stories'
+    }
   ])(
     'Should return multiple stories: $name',
     async ({ create, expectedCount, hasNextPage }) => {
@@ -47,7 +47,7 @@ module.exports = () => {
         lastName: 'Bar',
         email: 'email@example.com',
         password: 'password',
-        username: 'foobar',
+        username: 'foobar'
       });
 
       await storyModel.insertMany(allStories(create, user));
@@ -59,14 +59,14 @@ module.exports = () => {
 
       expect(body).toEqual(
         expect.objectContaining({
-          data: expect.any(Array),
-        }),
+          data: expect.any(Array)
+        })
       );
 
       expect(body.data).toHaveLength(expectedCount);
       expect(body.hasNextPage).toEqual(hasNextPage);
       expect(body.count).toEqual(create);
-    },
+    }
   );
 
   it.each([
@@ -74,26 +74,26 @@ module.exports = () => {
       create: 16,
       expectedCount: 1,
       hasNextPage: false,
-      page: 2,
+      page: 2
     },
     {
       create: 30,
       expectedCount: 15,
       hasNextPage: false,
-      page: 2,
+      page: 2
     },
     {
       create: 40,
       expectedCount: 15,
       hasNextPage: true,
-      page: 2,
+      page: 2
     },
     {
       create: 44,
       expectedCount: 14,
       hasNextPage: false,
-      page: 3,
-    },
+      page: 3
+    }
   ])(
     'Should expect $expectedCount stories on page $page when $create stories',
     async ({ create, expectedCount, hasNextPage, page }) => {
@@ -102,7 +102,7 @@ module.exports = () => {
         lastName: 'Bar',
         email: 'email@example.com',
         password: 'password',
-        username: 'foobar',
+        username: 'foobar'
       });
 
       await storyModel.insertMany(allStories(create, user));
@@ -114,13 +114,13 @@ module.exports = () => {
 
       expect(body).toEqual(
         expect.objectContaining({
-          data: expect.any(Array),
-        }),
+          data: expect.any(Array)
+        })
       );
 
       expect(body.data).toHaveLength(expectedCount);
       expect(body.hasNextPage).toEqual(hasNextPage);
       expect(body.count).toEqual(create);
-    },
+    }
   );
 };

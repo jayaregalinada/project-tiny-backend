@@ -8,20 +8,20 @@ module.exports = {
     user: env.DB_USERNAME,
     pass: env.DB_PASSWORD,
     host: env.DB_HOST,
-    name: env.DB_NAME,
+    name: env.DB_NAME
   },
   auth: {
     jwtSecretKey: env.JWT_SECRET_KEY,
-    saltOrRounds: env.AUTH_SALT_OR_ROUNDS || 10,
+    saltOrRounds: env.AUTH_SALT_OR_ROUNDS || 10
   },
   test: {
     databaseOptions: {
       binary: {
         version: '4.0.3',
-        skipMD5: true,
+        skipMD5: true
       },
       autoStart: false,
-      instance: {},
-    },
-  },
+      instance: {}
+    }
+  }
 };

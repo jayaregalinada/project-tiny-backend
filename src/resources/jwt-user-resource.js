@@ -16,6 +16,6 @@ module.exports = (userModel) => {
 
   return {
     ...user,
-    name: `${firstName} ${lastName}`,
+    name: `${firstName} ${lastName}`
   };
 };

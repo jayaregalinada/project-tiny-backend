@@ -4,24 +4,24 @@ const userModel = require('./user');
 
 const schema = {
   title: {
-    type: String,
+    type: String
   },
   body: {
     type: String,
-    text: true,
+    text: true
   },
   heroImage: {
     type: String,
-    default: null,
+    default: null
   },
   user: {
     type: SchemaTypes.ObjectId,
-    ref: userModel,
-  },
+    ref: userModel
+  }
 };
 
 const storySchema = Schema(schema, {
-  timestamps: true,
+  timestamps: true
 });
 storySchema.plugin(mongoosePaginate);
 

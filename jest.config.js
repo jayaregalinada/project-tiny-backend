@@ -47,8 +47,8 @@ module.exports = {
       branches: 80,
       functions: 80,
       lines: 80,
-      statements: -10,
-    },
+      statements: -10
+    }
   },
 
   // A path to a custom dependency extractor
@@ -155,7 +155,7 @@ module.exports = {
   // The glob patterns Jest uses to detect test files
   testMatch: [
     // "**/__tests__/**/*.[jt]s?(x)",
-    '**/?(*.)+(spec|test).[tj]s?(x)',
+    '**/?(*.)+(spec|test).[tj]s?(x)'
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
@@ -195,5 +195,5 @@ module.exports = {
   watchPathIgnorePatterns: ['globalConfig'],
 
   // Whether to use watchman for file crawling
-  watchman: true,
+  watchman: true
 };

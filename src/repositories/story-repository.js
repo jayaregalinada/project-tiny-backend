@@ -1,7 +1,7 @@
 const StoryModel = require('../models/story');
 
 const DEFAULTS = {
-  limit: 15,
+  limit: 15
 };
 
 /**
@@ -18,15 +18,15 @@ exports.findAll = (page = 1) => {
       populate: ['user'],
       useEstimatedCount: true,
       sort: {
-        updatedAt: -1,
+        updatedAt: -1
       },
       lean: true,
       page,
       customLabels: {
         docs: 'data',
-        totalDocs: 'count',
+        totalDocs: 'count'
       },
-      limit: DEFAULTS.limit,
-    },
+      limit: DEFAULTS.limit
+    }
   );
 };

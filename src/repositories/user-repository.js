@@ -14,7 +14,7 @@ exports.findByCredentials = async (email, password) => {
   /** @type {import('../../typedefs').UserMongooseModel|null} */
   const user = await userModel
     .findOne({
-      email,
+      email
     })
     .select('+password');
 

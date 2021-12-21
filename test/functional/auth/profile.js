@@ -16,7 +16,7 @@ module.exports = () => {
       lastName: 'Bar',
       email,
       password: hashedPassword,
-      username: 'foobar',
+      username: 'foobar'
     });
 
     const loginResponse = await request
@@ -34,8 +34,8 @@ module.exports = () => {
 
     expect(body).toEqual(
       expect.objectContaining({
-        sub: expect.any(String),
-      }),
+        sub: expect.any(String)
+      })
     );
 
     expect(body.sub).toBe(_id.toString());
@@ -49,8 +49,8 @@ module.exports = () => {
 
     expect(body).toEqual(
       expect.objectContaining({
-        error: expect.stringMatching(/Unauthorized/),
-      }),
+        error: expect.stringMatching(/Unauthorized/)
+      })
     );
   });
 
@@ -58,12 +58,12 @@ module.exports = () => {
     {
       name: 'Valid JWT Token but not a user',
       token:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
     },
     {
       name: 'Invalid JWT Token',
-      token: 'invalid-authorization-token',
-    },
+      token: 'invalid-authorization-token'
+    }
   ];
   it.each(bearerTokens)(
     'Should fail if invalid Authorization header: ($name)',
@@ -76,9 +76,9 @@ module.exports = () => {
 
       expect(body).toEqual(
         expect.objectContaining({
-          error: expect.stringMatching(/Unauthorized/),
-        }),
+          error: expect.stringMatching(/Unauthorized/)
+        })
       );
-    },
+    }
   );
 };

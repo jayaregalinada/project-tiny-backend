@@ -9,7 +9,7 @@ module.exports = (faker) => {
 
   const user = {
     firstName: firstName(),
-    lastName: lastName(),
+    lastName: lastName()
   };
 
   return {
@@ -19,6 +19,6 @@ module.exports = (faker) => {
     password: hashSync('password', 10),
     avatar: avatar(),
     createdAt: new Date(),
-    updatedAt: new Date(),
+    updatedAt: new Date()
   };
 };

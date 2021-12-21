@@ -21,8 +21,8 @@ module.exports = async (model, factory, options, count = 1) => {
     transformers: [
       Seeder.Transformers.setCreatedAtTimestamp,
       Seeder.Transformers.setUpdatedAtTimestamp,
-      Seeder.Transformers.setTimestamps,
-    ],
+      Seeder.Transformers.setTimestamps
+    ]
   };
 
   try {
@@ -30,10 +30,10 @@ module.exports = async (model, factory, options, count = 1) => {
       [
         {
           name: model.collection.name,
-          documents,
-        },
+          documents
+        }
       ],
-      { ...defaultOptions, ...options },
+      { ...defaultOptions, ...options }
     );
   } catch (error) {
     console.error(error);

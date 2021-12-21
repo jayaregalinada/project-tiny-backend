@@ -15,7 +15,7 @@ module.exports = () => {
       firstName: 'Foo',
       lastName: 'Bar',
       password: hashedPassword,
-      username: 'foobar',
+      username: 'foobar'
     });
 
     const { body } = await request
@@ -26,8 +26,8 @@ module.exports = () => {
 
     expect(body).toEqual(
       expect.objectContaining({
-        accessToken: expect.any(String),
-      }),
+        accessToken: expect.any(String)
+      })
     );
   });
 
@@ -41,22 +41,22 @@ module.exports = () => {
       firstName: 'Foo',
       lastName: 'Bar',
       password: hashedPassword,
-      username: 'foobar',
+      username: 'foobar'
     });
 
     const { body } = await request
       .post(path)
       .send({
         email,
-        password: 'invalid-password',
+        password: 'invalid-password'
       })
       .expect('Content-Type', /json/)
       .expect(400);
 
     expect(body).toEqual(
       expect.objectContaining({
-        error: expect.any(String),
-      }),
+        error: expect.any(String)
+      })
     );
   });
 };

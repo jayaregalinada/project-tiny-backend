@@ -1,5 +1,5 @@
 const { storySeeder } = require('./seeders/index');
 
 module.exports = {
-  'story-seeder': storySeeder,
+  'story-seeder': storySeeder
 };

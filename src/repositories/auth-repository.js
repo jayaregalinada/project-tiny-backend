@@ -12,12 +12,12 @@ const { auth } = require('../../config');
 exports.createAccessToken = (data, options) => {
   const { jwtSecretKey } = auth;
   const defaultOptions = {
-    expiresIn: '1h',
+    expiresIn: '1h'
   };
 
   return sign(data, jwtSecretKey, {
     ...defaultOptions,
-    ...options,
+    ...options
   });
 };
 

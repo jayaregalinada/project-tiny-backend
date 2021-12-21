@@ -13,6 +13,6 @@ module.exports = (userModel) => {
     fullName: `${firstName} ${lastName}`,
     email,
     username,
-    avatar,
+    avatar
   };
 };

@@ -11,6 +11,6 @@ module.exports = (storyModel) => {
     heroImage,
     author: userResource(user),
     createdAt,
-    updatedAt,
+    updatedAt
   };
 };

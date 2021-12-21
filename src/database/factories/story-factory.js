@@ -11,6 +11,6 @@ module.exports = (faker, user) => {
     heroImage: forHeroImage[Math.floor(Math.random() * forHeroImage.length)],
     user: user._id,
     createdAt: new Date(),
-    updatedAt: new Date(),
+    updatedAt: new Date()
   };
 };

@@ -12,12 +12,12 @@ const defaultProtocol = 'mongodb';
 const databaseConnectionDTOFactory = (uri, options) => {
   const defaultOptions = {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
   };
 
   return {
     uri,
-    options: { ...defaultOptions, ...options },
+    options: { ...defaultOptions, ...options }
   };
 };
 
@@ -30,14 +30,14 @@ const createConnection = (config) => {
   const defaultConfig = {
     name: '',
     pass: '',
-    user: '',
+    user: ''
   };
   const { name, pass, user } = { ...defaultConfig, ...config };
   if (config.uri !== undefined) {
     return databaseConnectionDTOFactory(config.uri, {
       dbName: name,
       user,
-      pass,
+      pass
     });
   }
 
@@ -46,7 +46,7 @@ const createConnection = (config) => {
   return databaseConnectionDTOFactory(uri, {
     dbName: name,
     pass: pass,
-    user: user,
+    user: user
   });
 };
 

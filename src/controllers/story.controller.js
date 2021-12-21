@@ -31,7 +31,7 @@ exports.index = async (request, response) => {
     console.error(error);
 
     response.status(400).json({
-      error: 'Something went wrong.',
+      error: 'Something went wrong.'
     });
   }
 };
@@ -55,7 +55,7 @@ exports.store = async (request, response) => {
   } catch (error) {
     console.error(error);
     response.status(400).json({
-      error: 'Something went wrong.',
+      error: 'Something went wrong.'
     });
   }
 };

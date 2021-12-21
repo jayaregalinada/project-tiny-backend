@@ -3,34 +3,34 @@ const { Schema, model } = require('mongoose');
 const schema = {
   firstName: {
     type: String,
-    required: true,
+    required: true
   },
   lastName: {
     type: String,
-    required: true,
+    required: true
   },
   email: {
     type: String,
     required: true,
-    unique: true,
+    unique: true
   },
   username: {
     type: String,
     required: true,
-    unique: true,
+    unique: true
   },
   password: {
     type: String,
     required: true,
-    select: false,
+    select: false
   },
   avatar: {
-    type: String,
-  },
+    type: String
+  }
 };
 
 const userSchema = Schema(schema, {
-  timestamps: true,
+  timestamps: true
 });
 
 userSchema.statics.random = function (callback) {
@@ -43,7 +43,7 @@ userSchema.statics.random = function (callback) {
       const random = Math.floor(Math.random() * count);
 
       this.findOne().skip(random).exec(callback);
-    }.bind(this),
+    }.bind(this)
   );
 };
 
