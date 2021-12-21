@@ -85,6 +85,19 @@ To test, just run:
 npm run test
 ```
 
+## Format
+Format your code using [Prettier](https://prettier.io) & [JS Semi-Standard Style](https://www.npmjs.com/package/semistandard), just run:
+
+```sh
+npm run format:standard
+```
+
+To auto-fix, just run:
+
+```sh
+npm run format:standard:fix
+```
+
 ---
 
 ###### Created and developed by [Jay Are Galinada](https://jayaregalinada.github.io)

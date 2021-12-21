@@ -15,7 +15,7 @@ exports.index = async (request, response) => {
 
   try {
     const page = isNaN(parsePage) ? 1 : parsePage;
-    let stories = await storyRepository.findAll(page);
+    const stories = await storyRepository.findAll(page);
 
     stories.data = stories.data.map(storyResource);
     // TODO: Make pagination response better
@@ -46,7 +46,7 @@ exports.store = async (request, response) => {
   const { title, body, heroImage } = request.body;
 
   try {
-    let model = new storyModel({ title, body, heroImage });
+    const model = storyModel.create({ title, body, heroImage });
     model.user = request.body.user;
     const story = await model.save();
     const storyWithUser = await story.populate('user');

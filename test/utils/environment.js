@@ -7,15 +7,12 @@ const debug = require('debug')('tiny-project-backend:test');
 const mongo = new MongoMemoryServer(test.databaseOptions);
 
 module.exports = class TinyEnvironment extends NodeEnvironment {
-  constructor(config, context) {
-    super(config, context);
-  }
-
-  async setup() {
+  async setup () {
     debug('Setup Tiny Test Environment');
     bootstrap();
 
     debug('Attempting to start Database');
+
     await mongo.start();
 
     const mongoUri = mongo.getUri();
@@ -25,7 +22,7 @@ module.exports = class TinyEnvironment extends NodeEnvironment {
     await super.setup();
   }
 
-  async teardown() {
+  async teardown () {
     debug('Teardown Tiny Test Environment');
 
     await mongo.stop();
@@ -33,7 +30,7 @@ module.exports = class TinyEnvironment extends NodeEnvironment {
     await super.teardown();
   }
 
-  runScript(script) {
+  runScript (script) {
     return super.runScript(script);
   }
 };

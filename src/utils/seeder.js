@@ -1,19 +1,18 @@
 const { Seeder } = require('mongo-seeding');
-const { Model } = require('mongoose');
 const faker = require('faker');
 const { database } = require('../../config');
 
 const seeder = new Seeder({ database });
 
 /**
- * @param {Model} model
- * @param {Model|any} factory
+ * @param {import('mongoose').Model} model
+ * @param {import('mongoose').Model|any} factory
  * @param {Object} options
  * @param {Number} count
  */
 module.exports = async (model, factory, options, count = 1) => {
-  let documents = [];
-  for (i = 0; i < count; i++) {
+  const documents = [];
+  for (let i = 0; i < count; i++) {
     documents.push(await factory(faker));
   }
 

@@ -1,10 +1,8 @@
-const mongoose = require('mongoose');
-
 /**
  * @typedef {Object} DatabaseConnectionDTO
  *
  * @property {String} uri
- * @property {mongoose.ConnectOptions} options
+ * @property {import('mongoose').ConnectOptions} options
  */
 
 /**

@@ -6,7 +6,7 @@ const userResource = require('./user-resource');
  * @returns {import('../../typedefs').JWTUserModel}
  */
 module.exports = (userModel) => {
-  let user = userResource(userModel);
+  const user = userResource(userModel);
 
   user.sub = user.id;
 

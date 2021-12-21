@@ -1,4 +1,5 @@
 const { hash } = require('bcrypt');
+const { it, expect } = require('@jest/globals');
 const { auth } = require('../../../config');
 const userModel = require('../../../src/models/user');
 const request = require('../../utils/request');

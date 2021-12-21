@@ -1,11 +1,11 @@
-const { connect, ConnectOptions, Mongoose } = require('mongoose');
+const { connect } = require('mongoose');
 const debug = require('debug')('tiny-project-backend:database');
 
 const defaultProtocol = 'mongodb';
 
 /**
  * @param {String} uri
- * @param {ConnectOptions} options
+ * @param {import('mongoose').ConnectOptions} options
  *
  * @returns {DatabaseConnectionDTO}
  */
@@ -53,7 +53,7 @@ const createConnection = (config) => {
 /**
  * @param {DatabaseConfiguration} config
  *
- * @returns {Promise<Mongoose>}
+ * @returns {Promise<import('mongoose').Mongoose>}
  */
 module.exports = async (config) => {
   try {

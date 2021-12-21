@@ -1,8 +1,9 @@
+const { describe, beforeAll, beforeEach, afterAll } = require('@jest/globals');
 const { loginTest, profileTest } = require('./auth/index');
-const Database = require('../utils/database');
+const database = require('../utils/database');
 const config = require('../../config');
 
-const db = Database.create(config.database);
+const db = database(config.database);
 describe('All test for authentication', () => {
   beforeAll(async () => {
     await db.connect();

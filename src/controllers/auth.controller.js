@@ -67,8 +67,8 @@ exports.profile = (request, response) => {
     return;
   }
 
-  const [type, token] = headers.authorization.split(' ');
-  const user = authRepository.decodeToken(token);
+  const authorization = headers.authorization.split(' ');
+  const user = authRepository.decodeToken(authorization[1]);
 
   if (user === null) {
     unauthorizedResponse(response);

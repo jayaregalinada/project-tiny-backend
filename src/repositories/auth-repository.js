@@ -1,11 +1,11 @@
-const { sign, verify, SignOptions } = require('jsonwebtoken');
+const { sign, verify } = require('jsonwebtoken');
 const { auth } = require('../../config');
 
 /**
  * Create access token.
  *
  * @param {any} data
- * @param {SignOptions} options
+ * @param {import('jsonwebtoken').SignOptions} options
  *
  * @returns String
  */

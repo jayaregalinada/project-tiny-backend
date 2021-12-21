@@ -1,4 +1,4 @@
-const { Seeder } = require('mongo-seeding');
+const { it, expect } = require('@jest/globals');
 const storyModel = require('../../../src/models/story');
 const request = require('../../utils/request');
 const allStories = require('../../fixtures/story/all-stories');

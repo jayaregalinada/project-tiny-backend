@@ -1,28 +1,27 @@
 const databaseConnect = require('../../src/connect');
 
-module.exports = class Database {
-  database;
+module.exports = (config) => {
+  const _config = config;
+  let _database = null;
 
-  static create(config) {
-    return new Database(config);
-  }
-
-  constructor(config) {
-    this._config = config;
-  }
-
-  async connect() {
-    const connect = await databaseConnect(this._config);
-    this.database = await connect.connection;
+  const connect = async () => {
+    const connect = await databaseConnect(_config);
+    _database = await connect.connection;
 
     return connect;
-  }
+  };
 
-  async drop() {
-    (await this.database).dropDatabase();
-  }
+  const drop = async () => {
+    (await _database).dropDatabase();
+  };
 
-  async close() {
-    (await this.database).close();
-  }
+  const close = async () => {
+    (await _database).close();
+  };
+
+  return {
+    connect,
+    close,
+    drop
+  };
 };
